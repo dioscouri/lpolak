@@ -1,0 +1,105 @@
+{
+    "534f0ea6d83bd5.45842513": {
+        "priority": 30,
+        "key": "fa-user",
+        "title": "Users",
+        "route": "",
+        "icon": "fa fa-user",
+        "children": [
+            {
+                "title": "List",
+                "route": "\/admin\/users",
+                "icon": "fa fa-user"
+            },
+            {
+                "title": "Groups",
+                "route": "\/admin\/users\/groups",
+                "icon": "fa fa-group"
+            },
+            {
+                "title": "Roles",
+                "route": "\/admin\/users\/roles",
+                "icon": "fa fa-unlock"
+            },
+            {
+                "title": "Settings",
+                "route": "\/admin\/users\/settings",
+                "icon": "fa fa-cogs"
+            }
+        ]
+    },
+    "534f0ea6d876b3.57579655": {
+        "priority": 99,
+        "title": "Navigation",
+        "route": "",
+        "icon": "fa fa-tasks",
+        "children": [
+            {
+                "title": "Menus",
+                "route": "\/admin\/menus",
+                "icon": "fa fa-list"
+            },
+            {
+                "title": "Add New Menu",
+                "route": "\/admin\/menu",
+                "icon": "fa fa-plus",
+                "hidden": true
+            },
+            {
+                "title": "Menu Items",
+                "route": "\/admin\/menus\/items",
+                "icon": "fa fa-sitemap",
+                "hidden": true
+            },
+            {
+                "title": "Add New Menu Item",
+                "route": "\/admin\/menus\/item",
+                "icon": "fa fa-plus",
+                "hidden": true
+            }
+        ]
+    },
+    "534f0ea6db7b73.47304161": {
+        "priority": 100,
+        "title": "System",
+        "route": "",
+        "icon": "fa fa-cogs",
+        "children": [
+            {
+                "title": "Settings",
+                "route": "\/admin\/settings",
+                "icon": "fa fa-cogs"
+            },
+            {
+                "title": "Rebuild Admin Menu",
+                "route": "\/admin\/system\/rebuildAdminMenu",
+                "icon": "fa fa-retweet"
+            },
+            {
+                "title": "Diagnostics",
+                "route": "\/admin\/system\/diagnostics",
+                "icon": "fa fa-heart"
+            },
+            {
+                "title": "Logs",
+                "route": "\/admin\/logs",
+                "icon": "fa fa-list"
+            },
+            {
+                "title": "Log Detail",
+                "route": "\/admin\/log",
+                "hidden": true
+            },
+            {
+                "title": "Queue",
+                "route": "\/admin\/queue",
+                "icon": "fa fa-refresh"
+            },
+            {
+                "title": "Queue Detail",
+                "route": "\/admin\/queueitem",
+                "hidden": true
+            }
+        ]
+    }
+}

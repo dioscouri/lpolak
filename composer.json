@@ -1,0 +1,24 @@
+{
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://dioscouri:f3fun@satis-private.dioscouri.com"
+        },
+        {
+            "type": "composer",
+            "url": "http://dioscouri:f3tienda!fun@satis-tienda-private.dioscouri.com"
+        }        
+    ],
+    "require": {
+        "dioscouri/f3-admin": "dev-master",
+        "dioscouri/f3-lib": "dev-master",
+        "dioscouri/f3-minify": "dev-master",
+        "dioscouri/f3-users": "dev-master",
+        "firephp/firephp-core": "dev-master",
+        "joomla/framework": ">=1.0",
+        "bcosca/fatfree": "dev-master",
+        "leafo/lessphp": "0.4.0",
+        "twbs/bootstrap": "dev-master#727a91de1c"
+    }
+}
+
