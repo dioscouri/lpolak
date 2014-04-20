@@ -5,6 +5,10 @@ class TimeBootstrap extends \Dsc\Bootstrap\App
     protected $dir = __DIR__;
     protected $namespace = 'Time';
 
+    protected function runSite(){
+    	parent::runSite();
+    }
+    
     /**
      * This method returns list of javascript files to be added to header
      *

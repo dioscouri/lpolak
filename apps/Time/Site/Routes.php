@@ -18,15 +18,16 @@ class Routes extends \Dsc\Routes\Group{
 	public function initialize(){
 		$this->setDefaults(
 				array(
-					'namespace' => '\Time',
-					'url_prefix' => '/'
+					'namespace' => '',
+					'url_prefix' => ''
 				)
 		);
-		
-        // TODO set some app-specific settings, if desired
-		$this->add( '', 'GET', array(
-								'controller' => 'Site\Controllers\Home',
+				
+		$this->add( '/', 'GET', array(
+								'controller' => 'Time\\Site\\Controllers\\Home',
 								'action' => 'index'
-								));
-	}
+
+		));
+		$this->addCrudGroup( 'Organizations', 'Organization', array( 'namespace' => '\\Time\\Site\\Controllers'), array( 'namespace' => '\\Time\\Site\\Controllers') );
+		}
 }
