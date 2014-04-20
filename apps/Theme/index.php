@@ -11,18 +11,10 @@
 <body class="dsc-wrap <?php echo !empty($body_class) ? $body_class : 'default-body'; ?>">
 
     <?php echo $this->renderView('Theme/Views::nav/top.php'); ?>
-
-    <?php //echo $this->renderView('Theme/Views::header.php'); ?>
 	
 	<div id="content" class="dsc-wrap">		
 
     	<div id="content-container" class="dsc-wrap">
-    	
-    	   <?php /* PUT DEBUGGING STUFF HERE ?>
-            <div class="container margin-top">
-                <?php echo \Dsc\Debug::dump( \Dsc\System::instance()->get('session')->id() ); ?>
-            </div>
-            */ ?>
     	
             <?php if (\Dsc\System::instance()->getMessages(false)) { ?>
             <div class="container margin-top">
@@ -38,7 +30,7 @@
     
     </div> <!-- #content -->
     
-    <?php echo $this->renderView('Theme/Views::footer.php'); ?>
+    <?php //echo $this->renderView('Theme/Views::footer.php'); ?>
     
 </body>
 

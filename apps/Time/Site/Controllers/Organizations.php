@@ -1,7 +1,7 @@
 <?php 
 namespace Time\Site\Controllers;
 
-class Projects extends \Time\Site\Controllers\Base
+class Organizations extends \Time\Site\Controllers\Base
 {
     public function index()
     {

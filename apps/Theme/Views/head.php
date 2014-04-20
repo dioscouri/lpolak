@@ -21,4 +21,3 @@
 <meta property="og:url" content="<?php echo $SCHEME . "://" . $HOST . $BASE . "/"; ?>" />
 <meta property="og:site_name" content="<?php echo $this->app->get('og.site_name'); ?>" />
 <meta property="og:description" content="<?php echo $this->app->get('og.description'); ?>" />
-<meta property="fb:app_id" content="<?php echo $this->app->get('fb.appId'); ?>" />
