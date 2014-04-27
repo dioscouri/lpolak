@@ -14,15 +14,11 @@
 			</div>
 			
 			<div class="row">
+				<div class="col-md-2 form-group">
+					<button type="submit" class="btn btn-success">Save</button>
+					<a href="./organizations" class="btn btn-warning">Back</a>
+				</div>
 			    <div class="col-md-2">
-			        
-			        <h3>Tags</h3>
-			        <p class="help-block">Some helpful text</p>
-			                
-			    </div>
-			    <!-- /.col-md-2 -->
-			                
-			    <div class="col-md-10">
 			
 			        <div class="portlet">
 			
@@ -47,14 +43,6 @@
 			        <!-- /.portlet -->
 			
 			    </div>
-			    <!-- /.col-md-10 -->
-			    
-			</div>
-			<div class="row">
-				<div class="form-group">
-					<button type="submit" class="btn btn-success">Save</button>
-					<a href="./organizations" class="btn btn-warning">Back</a>
-				</div>
 			</div>
 		</form>
 	</div>

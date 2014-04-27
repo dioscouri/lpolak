@@ -48,7 +48,7 @@ class Organization extends \Time\Site\Controllers\Base
     protected function displayEdit()
     {
 		$item = $this->getItem();
-    	$identifier = preg_replace('/\{id\}/', $item->get( $this->getModel()->getItemKey() ), $this->edit_item_route);
+	   	$identifier = preg_replace('/\{id\}/', $item->get( $this->getModel()->getItemKey() ), $this->edit_item_route);
         $f3 = \Base::instance();
         $f3->set('pagetitle', 'Edit Organization');
     

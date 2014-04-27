@@ -15,7 +15,10 @@ class TimeBootstrap extends \Dsc\Bootstrap\App
      * @param $app	Name of currently selected application (site or admin)
      */
     protected function getJS($app){
-        return	array();
+        return	array(
+        			'js/select2/select2.min.js',
+		            'js/common_time.js',
+        );
     }
     
     /**

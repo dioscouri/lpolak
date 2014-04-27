@@ -2,7 +2,7 @@
 	<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
 		<h1 class="page-title txt-color-blueDark">
 			<i class="fa fa-table fa-fw "></i> 
-				Users 
+				Organizations 
 			<span> > 
 				List
 			</span>
@@ -11,7 +11,7 @@
 	<div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
         <ul id="sparks" class="list-actions list-unstyled list-inline">
             <li>
-                <a class="btn btn-default" href="./admin/user/create">Add New</a>
+                <a class="btn btn-default" href="./organization/create">Add New</a>
             </li>
         </ul>            	
 	</div>
@@ -20,23 +20,7 @@
 <form id="list-form" action="./admin/users" method="post">
 
     <div class="no-padding">
-    
         <div class="row">
-            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
-                <?php /* ?>
-                <ul class="list-filters list-unstyled list-inline">
-                    <li>
-                        <a class="btn btn-link">Advanced Filtering</a>
-                    </li>                
-                    <li>
-                        <a class="btn btn-link">Quicklink Filter</a>
-                    </li>
-                    <li>
-                        <a class="btn btn-link">Quicklink Filter</a>
-                    </li>                    
-                </ul>    
-                */ ?>
-            </div>
             <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
                 <div class="form-group">
                     <div class="input-group">
@@ -58,7 +42,7 @@
                     <div class="input-group">
                         <select id="bulk-actions" name="bulk_action" class="form-control">
                             <option value="null">-Bulk Actions-</option>
-                            <option value="delete" data-action="./admin/users/delete">Delete</option>
+                            <option value="delete" data-action="./organizations/delete">Delete</option>
                         </select>
                         <span class="input-group-btn">
                             <button class="btn btn-default bulk-actions" type="button" data-target="bulk-actions">Apply</button>
@@ -96,73 +80,48 @@
 		<thead>
 			<tr>
 				<th class="col-sm-1 col-md-1 col-lg-1 checkbox-column"><input type="checkbox" class="icheck-input"></th>
-                <th data-sortable="username">Username</th>
+                <th data-sortable="title">Name of Organization</th>
                 <th data-sortable="email">Email</th>
-                <th>First Name</th>
-                <th data-sortable="last_name">Last Name</th>
-                <th>Groups</th>
+                <th>Tags</th>
                 <th class="col-sm-1 col-md-1 col-lg-1"></th>
             </tr>
 			<tr class="filter-row">
 				<th></th>
                 <th>
-                    <input placeholder="Username" name="filter[username-contains]" value="<?php echo $state->get('filter.username-contains'); ?>" type="text" class="form-control input-sm">
+                    <input placeholder="Name" name="filter[name-contains]" value="<?php echo $state->get('filter.name-contains'); ?>" type="text" class="form-control input-sm">
                 </th>
                 <th>
                     <input placeholder="Email" name="filter[email-contains]" value="<?php echo $state->get('filter.email-contains'); ?>" type="text" class="form-control input-sm">
                 </th>
                 <th></th>
                 <th></th>
-                <th><select  id="group_filter" name="filter[group]" class="form-control" >
-                <option value="">-Group Filter-</option>
-                <?php foreach (@$groups as $group) : ?>
-                <option <?php if($state->get('filter.group') == $group->id) { echo 'selected'; } ?> value="<?=$group->_id;?>"><?=$group->name;?></option>
-                <?php endforeach; ?>
-            </select></th>
-                <th><button class="btn " type="sumbit">Filter</button></th>
             </tr>
 		</thead>
 		<tbody>    
-        
         <?php if (!empty($paginated->items)) { ?>
     
             <?php foreach($paginated->items as $item) { ?>
                 <tr>
 	                <td class="checkbox-column">
-	                    <input type="checkbox" class="icheck-input" name="ids[]" value="<?php echo $item->id; ?>">
+	                    <input type="checkbox" class="icheck-input" name="ids[]" value="<?php echo $item->slug; ?>">
 	                </td>                
                     <td class="">
-                        <a href="./admin/user/edit/<?php echo $item->id; ?>">
-                            <?php echo $item->username; ?>
+                        <a href="./organization/detail/<?php echo $item->slug; ?>">
+                            <?php echo $item->title; ?>
                         </a>
                     </td>
                     <td class="">
                         <?php echo $item->email; ?>
                     </td>
                     <td class="">
-                        <?php echo $item->first_name; ?>
-                    </td>
-                    <td class="">
-                        <?php echo $item->last_name; ?>
-                    </td>
-                    <td class="">
-                    <ul>
-                    <?php if(is_array($item->groups)) : ?> 
-                    <?php foreach ($item->groups as $group) : ?>
-                    <li id="<?=$group['id'];?>">
-                    <?=$group['name'];?>
-                    </li>
-                    <?php endforeach; ?>
-                    <?php endif; ?>
-                    </ul> 
-                        
+                        <?php echo implode( ', ', $item->tags ); ?>
                     </td>
                     <td class="text-center">
-                        <a class="btn btn-xs btn-secondary" href="./admin/user/edit/<?php echo $item->id; ?>">
+                        <a class="btn btn-xs btn-secondary" href="./organization/edit/<?php echo $item->slug; ?>">
                             <i class="fa fa-pencil"></i>
                         </a>
 	                    &nbsp;
-	                    <a class="btn btn-xs btn-danger" data-bootbox="confirm" href="./admin/user/delete/<?php echo $item->id; ?>">
+	                    <a class="btn btn-xs btn-danger" data-bootbox="confirm" href="./organization/delete/<?php echo $item->slug; ?>">
 	                        <i class="fa fa-times"></i>
 	                    </a>
                     </td>
@@ -176,6 +135,7 @@
             </td>
             </tr>
         <?php } ?>
+		
 
         </tbody>
         </table>

@@ -27,7 +27,6 @@ class ThemeBootstrap extends \Dsc\Bootstrap\App
             'bootstrap/js/bootstrap.min.js',
             'bootbox/bootbox.js',
         	'js/main.js',
-            'js/custom.js',
         );
 	}
 

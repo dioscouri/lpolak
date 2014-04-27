@@ -3,6 +3,7 @@ namespace Time\Site\Controllers;
 
 class Organizations extends \Time\Site\Controllers\Base
 {
+	
 	protected function getModel()
 	{
 		$model = new \Time\Models\Organization;
