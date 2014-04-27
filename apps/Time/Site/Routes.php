@@ -69,6 +69,45 @@ class Routes extends \Dsc\Routes\Group{
 				'action' => 'delete',
 		) );
 				
+		$this->add( '/projects', 'GET', array(
+				'controller' => 'Time\Site\Controllers\Projects',
+				'action' => 'index',
+		) );
+		
+		$this->add( '/project/create', 'GET', array(
+				'controller' => 'Time\Site\Controllers\Project',
+				'action' => 'create',
+		) );
+		
+		$this->add( '/project/create', 'POST', array(
+				'controller' => 'Time\Site\Controllers\Project',
+				'action' => 'add',
+		) );
+		
+		$this->add( '/project/detail/@slug', 'GET', array(
+				'controller' => 'Time\Site\Controllers\Project',
+				'action' => 'read',
+		) );
+		
+		$this->add( '/project/edit/@slug', 'GET', array(
+				'controller' => 'Time\Site\Controllers\Project',
+				'action' => 'edit',
+		) );
+		
+		$this->add( '/project/edit/@slug', 'POST', array(
+				'controller' => 'Time\Site\Controllers\Project',
+				'action' => 'update',
+		) );
+		
+		$this->add( '/project/detail/@slug', 'GET', array(
+				'controller' => 'Time\Site\Controllers\Project',
+				'action' => 'read',
+		) );
+		
+		$this->add( '/project/delete/@slug', 'GET', array(
+				'controller' => 'Time\Site\Controllers\Project',
+				'action' => 'delete',
+		) );
 		
 //		$this->addCrudGroup( 'Organizations', 'Organization', array( 'namespace' => '\\Time\\Site\\Controllers'), array( 'namespace' => '\\Time\\Site\\Controllers') );
 		}

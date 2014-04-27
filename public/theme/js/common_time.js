@@ -34,7 +34,6 @@ var CustomApp = function () {
                 jQuery.merge( data, JSON.parse(el.attr('data-data')) );
                 el.select2({ allowClear: true, placeholder: "Select...", data: data, multiple: multiple });
             });
-            console.log($('.ui-select2-tags'));
             $('.ui-select2-tags').each(function(){
                 var el = $(this);
                 var tags_data = new Array;

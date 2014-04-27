@@ -17,7 +17,7 @@
 	</div>
 </div>
 
-<form id="list-form" action="./admin/users" method="post">
+<form id="list-form" action="./projects" method="post">
 
     <div class="no-padding">
         <div class="row">

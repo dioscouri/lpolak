@@ -3,8 +3,22 @@ namespace Time\Site\Controllers;
 
 class Projects extends \Time\Site\Controllers\Base
 {
+	protected function getModel()
+	{
+		$model = new \Time\Models\Project;
+		return $model;
+	}
+        
     public function index()
     {
-        echo \Dsc\System::instance()->get('theme')->renderTheme('Time\Site\Views::projects/list.php');
+        $model = $this->getModel();
+        $state = $model->populateState()->getState();
+        \Base::instance()->set('state', $state );
+    
+        $paginated = $model->paginate();
+        \Base::instance()->set('paginated', $paginated );
+        
+        $view = \Dsc\System::instance()->get('theme');
+        echo $view->render('Time/Site/Views::projects/list.php');
     }
 }

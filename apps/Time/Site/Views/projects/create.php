@@ -1,28 +1,28 @@
 <div class="panel panel-info">
-	<div class="panel-heading">Edit Organization</div>
+	<div class="panel-heading">Create Project</div>
 	<div class="panel-body">
 		<form method="POST" role="form">
 			<div class="row">
 				<div class="form-group col-md-6">
 					<label>Name</label>
-					<input name="title" value="<?php echo $item->title; ?>" type="text" class="form-control" placeholder="Name of Organization or Client"/>
+					<input name="title" value="<?php echo $flash->old('title') ?>" type="text" class="form-control" placeholder="Project Name"/>
 				</div>
 				<div class="form-group col-md-6">
-					<label>Contact Email</label>
-					<input name="email" value="<?php echo $item->email; ?>" type="email" class="form-control" placeholder="Contact Cmail"/>
+					<label>Charge per Hour</label>
+					<input name="hourly_rate" value="<?php echo $flash->old('hourly_rate') ?>" type="text" class="form-control" placeholder="Your hourly rate"/>
 				</div>
 			</div>
 			<div class="row">
 				<div class="form-group col-md-6">
 					<label>Description</label>
-					<textarea rows="5" cols="70" name="description" id="description" placeholder="A short description of organization"><?php echo $item->description; ?></textarea>
+					<textarea rows="5" cols="70" name="description" id="description" placeholder="A short description of organization"><?php echo $flash->old('description') ?></textarea>
 				</div>
 			</div>
 			
 			<div class="row">
 				<div class="col-md-2 form-group">
 					<button type="submit" class="btn btn-success">Save</button>
-					<a href="./organizations" class="btn btn-warning">Back</a>
+					<a href="./projects" class="btn btn-warning">Back</a>
 				</div>
 			    <div class="col-md-2">
 			

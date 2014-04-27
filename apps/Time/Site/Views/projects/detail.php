@@ -1,5 +1,5 @@
 <div class="panel panel-info">
-	<div class="panel-heading">Detail Organization</div>
+	<div class="panel-heading">Detail Project</div>
 	<div class="panel-body">
 			<div class="row">
 				<div class="form-group col-md-6">
@@ -7,20 +7,20 @@
 					<?php echo $item->title; ?>
 				</div>
 				<div class="form-group col-md-6">
-					<h3>Contact Email</h3>
-					<?php echo $item->email; ?>
+					<h3>Charge per Hour</h3>
+					<?php echo $item->hourly_rate; ?>
 				</div>
 			</div>
 			<div class="row">
 				<div class="form-group col-md-6">
 					<h3>Description</h3>
-					<?php echo $item->description; ?>
+					<?php echo $item->description; ?></h3>
 				</div>
 			</div>
 			
 			<div class="row">
 				<div class="col-md-2 form-group">
-					<a href="./organizations" class="btn btn-warning">Back</a>
+					<a href="./projects" class="btn btn-warning">Back</a>
 				</div>
 			    <div class="col-md-2">
 			    	<h3>Tags</h3>

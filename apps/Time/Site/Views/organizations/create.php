@@ -5,11 +5,18 @@
 			<div class="row">
 				<div class="form-group col-md-6">
 					<label>Name</label>
-					<input name="title" value="" type="text" class="form-control" placeholder="Name of Organization or Client"/>
+					<input name="title" value="<?php echo $flash->old('title') ?>" type="text" class="form-control" placeholder="Name of Organization or Client"/>
 				</div>
 				<div class="form-group col-md-6">
 					<label>Contact Email</label>
-					<input name="email" value="" type="email" class="form-control" placeholder="Contact Cmail"/>
+					<input name="email" value="<?php echo $flash->old('email') ?>" type="email" class="form-control" placeholder="Contact Cmail"/>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="form-group col-md-6">
+					<label>Description</label>
+					<textarea rows="5" cols="70" name="description" id="description" placeholder="A short description of organization"><?php echo $flash->old('description') ?></textarea>
 				</div>
 			</div>
 			
