@@ -8,8 +8,8 @@ class Organization extends \Time\Site\Controllers\Base
 	protected $crud_item_key = 'slug';
     protected $list_route = '/organizations';
     protected $create_item_route = '/organization/create';
-    protected $get_item_route = '/organization/detail/{slug}';    
-    protected $edit_item_route = '/organization/edit/{slug}';
+    protected $get_item_route = '/organization/detail/{id}';    
+    protected $edit_item_route = '/organization/edit/{id}';
 
     protected function getModel() {
     	$model = new \Time\Models\Organization;
@@ -40,6 +40,8 @@ class Organization extends \Time\Site\Controllers\Base
         $f3->set('pagetitle', 'Create Organization');
     
         $view = \Dsc\System::instance()->get('theme');
+        $all_tags = $this->getModel()->getTags();
+        \Base::instance()->set('all_tags', $all_tags );
         echo $view->render('Time/Site/Views::organizations/create.php');
     }
     
@@ -51,6 +53,8 @@ class Organization extends \Time\Site\Controllers\Base
         $f3->set('pagetitle', 'Edit Organization');
     
         $view = \Dsc\System::instance()->get('theme');
+        $all_tags = $this->getModel()->getTags();
+        \Base::instance()->set('all_tags', $all_tags );
         echo $view->render('Time/Site/Views::organizations/edit.php');
     }
 

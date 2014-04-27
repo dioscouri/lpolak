@@ -54,7 +54,7 @@ class Routes extends \Dsc\Routes\Group{
 				'action' => 'edit',
 		) );
 		
-		$this->add( '/organization/edit/@slug', 'GET', array(
+		$this->add( '/organization/edit/@slug', 'POST', array(
 				'controller' => 'Time\Site\Controllers\Organization',
 				'action' => 'update',
 		) );

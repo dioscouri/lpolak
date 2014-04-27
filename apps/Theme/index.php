@@ -8,7 +8,7 @@
     <?php echo $this->renderView('Theme/Views::head.php'); ?>
 </head>
 
-<body class="dsc-wrap <?php echo !empty($body_class) ? $body_class : 'default-body'; ?>">
+<body class="dsc-wrap <?php echo !empty($body_class) ? $body_class : 'default-body'; ?>" role="document">
 
     <?php echo $this->renderView('Theme/Views::nav/top.php'); ?>
 	

@@ -1,5 +1,10 @@
-<div class="navbar navbar-inverse navbar-fixed-top navbar-custom">
-    <div class="container">
-		<h1>Time</h1>
+ <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Time</a>
+        </div>
+        <div class="navbar-collapse collapse">
+        </div><!--/.nav-collapse -->
+      </div>
     </div>
-</div>

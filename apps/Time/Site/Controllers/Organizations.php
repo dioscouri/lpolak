@@ -5,7 +5,7 @@ class Organizations extends \Time\Site\Controllers\Base
 {
 	protected function getModel()
 	{
-		$model = new \Time\Site\Models\Organization;
+		$model = new \Time\Models\Organization;
 		return $model;
 	}
         
