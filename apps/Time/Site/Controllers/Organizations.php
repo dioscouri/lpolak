@@ -11,8 +11,6 @@ class Organizations extends \Time\Site\Controllers\Base
         
     public function index()
     {
-    	echo "ahoj";
-    	return;
         $model = $this->getModel();
         $state = $model->populateState()->getState();
         \Base::instance()->set('state', $state );

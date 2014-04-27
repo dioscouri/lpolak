@@ -23,13 +23,8 @@ class ThemeBootstrap extends \Dsc\Bootstrap\App
             'js/vendor/jquery.flexslider-min.js',
             'js/vendor/jquery.jcarousel.min.js',
             'js/vendor/jquery.placeholder.min.js',
-            'js/vendor/tinynav.min.js',
-            'js/vendor/jquery.raty.min.js',
-            'js/vendor/chosen.jquery.min.js',
             'js/vendor/bootstrap-slider.js',
             'js/vendor/bootstrap.min.js',
-            'site/js/bootstrap-hover-dropdown.js',
-            'vendor/jqzoom/jqzoom.js',                        
             'js/main.js',
             'js/custom.js',
         );
@@ -49,8 +44,6 @@ class ThemeBootstrap extends \Dsc\Bootstrap\App
             'css/chosen.css',
             'css/slider.css',
             'css/style.css',
-            'rmm/css/customized.css',
-            'vendor/jqzoom/jqzoom.css',
 		);
 	}
 

@@ -24,10 +24,52 @@ class Routes extends \Dsc\Routes\Group{
 		);
 				
 		$this->add( '/', 'GET', array(
-								'controller' => 'Time\\Site\\Controllers\\Home',
+								'controller' => 'Time\Site\Controllers\Home',
 								'action' => 'index'
 
 		));
-		$this->addCrudGroup( 'Organizations', 'Organization', array( 'namespace' => '\\Time\\Site\\Controllers'), array( 'namespace' => '\\Time\\Site\\Controllers') );
+		
+		$this->add( '/organizations', 'GET', array(
+				'controller' => 'Time\Site\Controllers\Organizations',
+				'action' => 'index',
+		) );
+		
+		$this->add( '/organization/create', 'GET', array(
+				'controller' => 'Time\Site\Controllers\Organization',
+				'action' => 'create',
+		) );
+
+		$this->add( '/organization/create', 'POST', array(
+				'controller' => 'Time\Site\Controllers\Organization',
+				'action' => 'add',
+		) );
+
+		$this->add( '/organization/detail/@slug', 'GET', array(
+				'controller' => 'Time\Site\Controllers\Organization',
+				'action' => 'read',
+		) );
+
+		$this->add( '/organization/edit/@slug', 'GET', array(
+				'controller' => 'Time\Site\Controllers\Organization',
+				'action' => 'edit',
+		) );
+		
+		$this->add( '/organization/edit/@slug', 'GET', array(
+				'controller' => 'Time\Site\Controllers\Organization',
+				'action' => 'update',
+		) );
+
+		$this->add( '/organization/detail/@slug', 'GET', array(
+				'controller' => 'Time\Site\Controllers\Organization',
+				'action' => 'read',
+		) );
+
+		$this->add( '/organization/delete/@slug', 'GET', array(
+				'controller' => 'Time\Site\Controllers\Organization',
+				'action' => 'delete',
+		) );
+				
+		
+//		$this->addCrudGroup( 'Organizations', 'Organization', array( 'namespace' => '\\Time\\Site\\Controllers'), array( 'namespace' => '\\Time\\Site\\Controllers') );
 		}
 }
