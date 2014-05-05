@@ -13,8 +13,12 @@
 			</div>
 			<div class="row">
 				<div class="form-group col-md-6">
+					<h3>Organization</h3>
+					<a href="./organization/detail/<?php echo $item->{'organization.slug'}; ?>"><?php echo $item->{'organization.title'}; ?></a>
+				</div>
+				<div class="form-group col-md-6">
 					<h3>Description</h3>
-					<?php echo $item->description; ?></h3>
+					<?php echo $item->description; ?>
 				</div>
 			</div>
 			

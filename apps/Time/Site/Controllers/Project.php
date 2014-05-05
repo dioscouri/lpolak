@@ -11,8 +11,17 @@ class Project extends \Time\Site\Controllers\Base
     protected $get_item_route = '/projct/detail/{id}';    
     protected $edit_item_route = '/project/edit/{id}';
 
-    protected function getModel() {
-    	$model = new \Time\Models\Project;
+    protected function getModel($name = 'project') {
+    	$model = null;
+    	
+    	switch( $name ) {
+    		case 'project':
+    			$model = new \Time\Models\Project;
+    			break;
+    		case 'organization':
+		    	$model = new \Time\Models\Organization;
+    			break;
+    	}
     	return $model;
     }
 
@@ -42,6 +51,7 @@ class Project extends \Time\Site\Controllers\Base
         $view = \Dsc\System::instance()->get('theme');
         $all_tags = $this->getModel()->getTags();
         \Base::instance()->set('all_tags', $all_tags );
+        \Base::instance()->set( 'organizations', $this->getModel('organization')->populateState()->getItems() );
         echo $view->render('Time/Site/Views::projects/create.php');
     }
     
@@ -55,6 +65,7 @@ class Project extends \Time\Site\Controllers\Base
         $view = \Dsc\System::instance()->get('theme');
         $all_tags = $this->getModel()->getTags();
         \Base::instance()->set('all_tags', $all_tags );
+        \Base::instance()->set( 'organizations', $this->getModel('organization')->populateState()->getItems() );
         echo $view->render('Time/Site/Views::projects/edit.php');
     }
 

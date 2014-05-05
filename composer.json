@@ -18,7 +18,8 @@
         "joomla/framework": ">=1.0",
         "bcosca/fatfree": "dev-master",
         "leafo/lessphp": "0.4.0",
-        "twbs/bootstrap": "dev-master#727a91de1c"
+        "twbs/bootstrap": "dev-master#727a91de1c",
+        "phpseclib/phpseclib" : "dev-php5"
     }
 }
 

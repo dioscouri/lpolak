@@ -14,6 +14,24 @@
 			</div>
 			<div class="row">
 				<div class="form-group col-md-6">
+					<label>Organization</label>
+					<select name="organization_id" class="form-control">
+					<?php 
+						$vals = array();
+						if( count( $organizations ) ){
+							for( $i = 0, $c = count( $organizations ); $i < $c; $i++ ){
+								$vals []=
+									array(
+										'value' => $organizations[$i]->{'id'},
+										'text' =>  $organizations[$i]->{'title'},
+								);
+							}
+						}
+						echo \Dsc\Html\Select::options( $vals, $flash->old('organization.id'));
+					?>
+					</select>
+				</div>
+				<div class="form-group col-md-6">
 					<label>Description</label>
 					<textarea rows="5" cols="70" name="description" id="description" placeholder="A short description of organization"><?php echo $flash->old('description') ?></textarea>
 				</div>

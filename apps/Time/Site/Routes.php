@@ -109,6 +109,17 @@ class Routes extends \Dsc\Routes\Group{
 				'action' => 'delete',
 		) );
 		
+		$this->add( '/import/site/lts', 'GET', array(
+				'controller' => 'Time\Site\Controllers\Import',
+				'action' => 'index',
+		) );
+		
+		$this->add( '/import/site/lts', 'POST', array(
+				'controller' => 'Time\Site\Controllers\Import',
+				'action' => 'import',
+		) );
+		
+		
 //		$this->addCrudGroup( 'Organizations', 'Organization', array( 'namespace' => '\\Time\\Site\\Controllers'), array( 'namespace' => '\\Time\\Site\\Controllers') );
 		}
 }
