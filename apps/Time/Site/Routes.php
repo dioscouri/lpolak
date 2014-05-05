@@ -119,6 +119,10 @@ class Routes extends \Dsc\Routes\Group{
 				'action' => 'import',
 		) );
 		
+		$this->add( '/home', 'GET', array(
+				'controller' => 'Time\Site\Controllers\Dashboard',
+				'action' => 'index',
+		) );
 		
 //		$this->addCrudGroup( 'Organizations', 'Organization', array( 'namespace' => '\\Time\\Site\\Controllers'), array( 'namespace' => '\\Time\\Site\\Controllers') );
 		}

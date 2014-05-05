@@ -12,6 +12,11 @@ class Project extends  \Dsc\Mongo\Collections\Describable {
 	
 		$this->setCondition('type', $this->__type );
 		
+		$filter_organization = $this->getState( 'filter.organization', '' );
+		if(strlen( $filter_organization ) ){
+			echo $filter_organization;
+			$this->setCondition( 'organization.slug', $filter_organization );
+		}
 		return $this;
 	}
 

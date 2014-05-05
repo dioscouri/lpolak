@@ -14,4 +14,11 @@ class Organization extends  \Dsc\Mongo\Collections\Describable {
 	
 		return $this;
 	}
+	
+	public function getProjects(){
+		$model = (new \Time\Models\Project)
+					->populateState()->setState( 'filter.organization', $this->{'slug'} );
+		
+		return $model->getItems();
+	}
 }
