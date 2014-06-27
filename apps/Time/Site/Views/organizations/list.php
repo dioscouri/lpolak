@@ -3,9 +3,6 @@
 		<h1 class="page-title txt-color-blueDark">
 			<i class="fa fa-table fa-fw "></i> 
 				Organizations 
-			<span> > 
-				List
-			</span>
 		</h1>
 	</div>
 	<div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">

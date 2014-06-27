@@ -18,15 +18,11 @@ class ThemeBootstrap extends \Dsc\Bootstrap\App
 	 */
 	protected function getJS($app){
         return array(
-            'js/vendor/modernizr-2.6.2-respond-1.1.0.min.js',
-            'jquery/core/jquery-2.1.0.min.js',
-            'js/vendor/jquery.flexslider-min.js',
-            'js/vendor/jquery.jcarousel.min.js',
-            'js/vendor/jquery.placeholder.min.js',
-            'js/vendor/bootstrap-slider.js',
-            'bootstrap/js/bootstrap.min.js',
-            'bootbox/bootbox.js',
+            'theme/js/jquery-2.1.1.min.js',
+            'theme/js/bootstrap/bootstrap.min.js',
         	'js/main.js',
+        	'theme/js/plugins/metisMenu/jquery.metisMenu.js',
+        	'theme/js/sb-admin.js',
         );
 	}
 
@@ -38,12 +34,10 @@ class ThemeBootstrap extends \Dsc\Bootstrap\App
 	protected function getCSS($app){
 		return array(
             'dsc/css/common.css',
-            'css/font-awesome.min.css',
-            'bootstrap/css/bootstrap.min.css',
+            'theme/css/font-awesome.min.css',
+            'theme/css/bootstrap.min.css',
             'css/flexslider.css',
-            'css/chosen.css',
-            'css/slider.css',
-            'css/style.css',
+			'theme/css/sb-admin.css',
 		);
 	}
 

@@ -10,12 +10,10 @@
 
 <body class="dsc-wrap <?php echo !empty($body_class) ? $body_class : 'default-body'; ?>" role="document">
 
-    <?php echo $this->renderView('Theme/Views::nav/top.php'); ?>
+	<div id="wrapper">
+    	<?php echo $this->renderView('Theme/Views::nav/left.php'); ?>
 	
-	<div id="content" class="dsc-wrap">		
-
-    	<div id="content-container" class="dsc-wrap">
-    	
+		<div id="page-wrapper">
             <?php if (\Dsc\System::instance()->getMessages(false)) { ?>
             <div class="container margin-top">
                 <tmpl type="system.messages" />
@@ -25,13 +23,24 @@
             <section id="main">
                 <tmpl type="view" />
             </section>
+            
+    <?php $debug = true; if ($this->app->get('DEBUG') && $debug) { ?>
+    <div class="clearfix">
+        <div class="stats list-group">
+            <h4>Stats</h4>
+            <div class="list-group-item">
+                <?php echo \Base::instance()->format('Page rendered in {0} msecs / Memory usage {1} KB',round(1e3*(microtime(TRUE)-$TIME),2),round(memory_get_usage(TRUE)/1e3,1)); ?>
+            </div>
+        </div>
         
-    	</div> <!-- /#content-container -->
-    
-    </div> <!-- #content -->
-    
-    <?php //echo $this->renderView('Theme/Views::footer.php'); ?>
-    
+        <tmpl type="system.loaded_views" />
+        
+    </div>
+    <?php } ?>
+            
+		</div>
+	</div>
+	
 </body>
 
 </html>
