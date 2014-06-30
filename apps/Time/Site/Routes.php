@@ -26,7 +26,11 @@ class Routes extends \Dsc\Routes\Group{
 		$this->add( '/', 'GET', array(
 								'controller' => 'Time\Site\Controllers\Home',
 								'action' => 'index'
+		));
 
+		$this->add( '/home', 'GET', array(
+				'controller' => 'Time\Site\Controllers\Home',
+				'action' => 'index'
 		));
 		
 		$this->add( '/organizations', 'GET', array(

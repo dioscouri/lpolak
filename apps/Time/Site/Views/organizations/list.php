@@ -77,7 +77,7 @@
 		<thead>
 			<tr>
 				<th class="col-sm-1 col-md-1 col-lg-1 checkbox-column"><input type="checkbox" class="icheck-input"></th>
-                <th data-sortable="title">Name of Organization</th>
+                <th data-sortable="title">Name</th>
                 <th data-sortable="email">Email</th>
                 <th>Tags</th>
                 <th class="col-sm-1 col-md-1 col-lg-1"></th>
