@@ -19,6 +19,7 @@ class Organizations extends \Time\Site\Controllers\Base
         $paginated = $model->paginate();
         \Base::instance()->set('paginated', $paginated );
         
+        $this->app->set( 'meta.title', 'Organizations' );
         $view = \Dsc\System::instance()->get('theme');
         echo $view->render('Time/Site/Views::organizations/list.php');
     }

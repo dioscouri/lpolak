@@ -42,6 +42,7 @@ class Organization extends \Time\Site\Controllers\Base
         $view = \Dsc\System::instance()->get('theme');
         $all_tags = $this->getModel()->getTags();
         \Base::instance()->set('all_tags', $all_tags );
+        $this->app->set( 'meta.title', 'Create a Organization' );
         echo $view->render('Time/Site/Views::organizations/create.php');
     }
     
@@ -55,6 +56,7 @@ class Organization extends \Time\Site\Controllers\Base
         $view = \Dsc\System::instance()->get('theme');
         $all_tags = $this->getModel()->getTags();
         \Base::instance()->set('all_tags', $all_tags );
+        $this->app->set( 'meta.title', 'Edit Organization' );
         echo $view->render('Time/Site/Views::organizations/edit.php');
     }
 
@@ -65,6 +67,7 @@ class Organization extends \Time\Site\Controllers\Base
     	$f3->set('pagetitle', 'Detail Organization - '.$item->title);
     	
     	$view = \Dsc\System::instance()->get('theme');
-    	echo $view->render('Time/Site/Views::organizations/detail.php');
+        $this->app->set( 'meta.title', 'Detail Organization' );
+        echo $view->render('Time/Site/Views::organizations/detail.php');
     }
 }

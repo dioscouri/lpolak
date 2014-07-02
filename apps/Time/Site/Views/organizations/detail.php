@@ -1,31 +1,28 @@
-<div class="panel panel-info">
-	<div class="panel-heading">Detail Organization</div>
-	<div class="panel-body">
-			<div class="row">
-				<div class="form-group col-md-6">
-					<h3>Name</h3>
-					<?php echo $item->title; ?>
-				</div>
-				<div class="form-group col-md-6">
-					<h3>Contact Email</h3>
-					<?php echo $item->email; ?>
-				</div>
-			</div>
-			<div class="row">
-				<div class="form-group col-md-6">
-					<h3>Description</h3>
-					<?php echo $item->description; ?>
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="col-md-2 form-group">
-					<a href="./organizations" class="btn btn-warning">Back</a>
-				</div>
-			    <div class="col-md-2">
-			    	<h3>Tags</h3>
-					<?php echo implode(",", (array) $item->tags ); ?>			    
-			    </div>
-			</div>
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">Detail Organization</h1>
 	</div>
 </div>
+    <div class="clearfix">
+
+        <div class="pull-right">
+			<a href="./organizations" class="btn btn-warning">Back</a>
+		</div>
+
+    </div>
+
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="#tab-basics" data-toggle="tab"> Basics </a>
+        </li>
+    </ul>
+    <div class="tab-content padding-10">
+    
+        <div class="tab-pane active" id="tab-basics">
+        
+            <?php echo $this->renderLayout('Time/Site/Views::organizations/tab_basics_detail.php'); ?>
+        
+        </div>
+        <!-- /.tab-pane -->
+        
+    </div>

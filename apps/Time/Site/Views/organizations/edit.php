@@ -1,55 +1,54 @@
-<div class="panel panel-info">
-	<div class="panel-heading">Edit Organization</div>
-	<div class="panel-body">
-		<form method="POST" role="form">
-			<div class="row">
-				<div class="form-group col-md-6">
-					<label>Name</label>
-					<input name="title" value="<?php echo $item->title; ?>" type="text" class="form-control" placeholder="Name of Organization or Client"/>
-				</div>
-				<div class="form-group col-md-6">
-					<label>Contact Email</label>
-					<input name="email" value="<?php echo $item->email; ?>" type="email" class="form-control" placeholder="Contact Cmail"/>
-				</div>
-			</div>
-			<div class="row">
-				<div class="form-group col-md-6">
-					<label>Description</label>
-					<textarea rows="5" cols="70" name="description" id="description" placeholder="A short description of organization"><?php echo $item->description; ?></textarea>
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="col-md-2 form-group">
-					<button type="submit" class="btn btn-success">Save</button>
-					<a href="./organizations" class="btn btn-warning">Back</a>
-				</div>
-			    <div class="col-md-2">
-			
-			        <div class="portlet">
-			
-			            <div class="portlet-header">
-			
-			                <h3>Tags</h3>
-			
-			            </div>
-			            <!-- /.portlet-header -->
-			
-			            <div class="portlet-content">
-			            
-			                <div class="input-group">
-			                    <input name="tags" data-tags='<?php echo json_encode( $all_tags ); ?>' value="<?php echo implode(",", (array) $flash->old('tags') ); ?>" type="text" class="form-control ui-select2-tags" /> 
-			                </div>
-			                <!-- /.form-group -->
-			
-			            </div>
-			            <!-- /.portlet-content -->
-			
-			        </div>
-			        <!-- /.portlet -->
-			
-			    </div>
-			</div>
-		</form>
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">Edit Organization</h1>
 	</div>
 </div>
+<form method="POST" role="form" class="form" id="organization-form">
+    <div class="clearfix">
+
+        <div class="pull-right">
+			<button type="submit" class="btn btn-success">Save</button>
+			&nbsp;
+			<a href="./organizations" class="btn btn-warning">Back</a>
+		</div>
+
+    </div>
+
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="#tab-basics" data-toggle="tab"> Basics </a>
+        </li>
+        <li>
+            <a href="#tab-notes" data-toggle="tab"> Notes </a>
+        </li>
+        <li>
+            <a href="#tab-settings" data-toggle="tab"> Settings </a>
+        </li>
+	</ul>
+	
+    <div class="tab-content padding-10">
+    
+        <div class="tab-pane active" id="tab-basics">
+        
+            <?php echo $this->renderLayout('Time/Site/Views::organizations/tab_basics.php'); ?>
+        
+        </div>
+        <!-- /.tab-pane -->
+        
+        <div class="tab-pane" id="tab-notes">
+        
+            <?php echo $this->renderLayout('Time/Site/Views::organizations/tab_notes.php'); ?>
+        
+        </div>
+        <!-- /.tab-pane -->
+        
+        <div class="tab-pane" id="tab-settings">
+        
+            <?php echo $this->renderLayout('Time/Site/Views::organizations/tab_settings.php'); ?>
+        
+        </div>
+        <!-- /.tab-pane -->
+        
+	</div>
+    
+</form>
