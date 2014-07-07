@@ -20,10 +20,11 @@ class ThemeBootstrap extends \Dsc\Bootstrap\App
         return array(
             'theme/js/jquery-2.1.1.min.js',
             'theme/js/bootstrap/bootstrap.min.js',
-        	'js/main.js',
-        	'js/notes.js',
+        	'theme/js/plugins/bootbox/bootbox.js',
         	'theme/js/plugins/metisMenu/jquery.metisMenu.js',
         	'theme/js/sb-admin.js',
+        	'js/main.js',
+        	'js/notes.js',
         );
 	}
 
