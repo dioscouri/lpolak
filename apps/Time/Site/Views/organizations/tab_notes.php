@@ -1,10 +1,11 @@
 <?php 
 	$notes = (array) $item->{'notes'};
+	$username = 'elf';
 	
 	echo $this->renderLayout('Time/Site/Views::organizations/fields_add_note.php');
 ?>
 
-<?php for( $i = 0; $i < 5; $i++ ) { ?>
+<?php for( $i = 0; $i < 4; $i++ ) { ?>
 <div class="panel panel-default" data-element-type="note" data-mode="" data-note-idx="<?php echo $i; ?>">
   <div class="panel-heading">
   	<h3 class="panel-title">
@@ -62,6 +63,8 @@
 <input name="__notesToDelete" id="notesToDelete" type="hidden" value="" />
 <script type="text/javascript">
 $(function(){
-	Notes.setUserName( 'elf' );
+	Notes.setIndex( <?php echo count( $notes ) + 5 ?> );
+	Notes.setUserName( '<?php echo $username; ?>' );
+	Notes.bindSaveButton( 'button[data-task="save-document"]' );
 });
 </script>

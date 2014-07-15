@@ -7,7 +7,7 @@
     <div class="clearfix">
 
         <div class="pull-right">
-			<button type="submit" class="btn btn-success">Save</button>
+			<button type="submit" class="btn btn-success" data-task="save-document">Save</button>
 			&nbsp;
 			<a href="./organizations" class="btn btn-warning">Back</a>
 		</div>
