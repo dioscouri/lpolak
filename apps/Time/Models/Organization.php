@@ -41,15 +41,16 @@ class Organization extends  \Dsc\Mongo\Collections\Describable {
 		}
 		
 		$notes = $this->notes;
-		ksort( $notes );
+		ksort( $notes ); // we need to sort array by its keys to prevent mongo saving it as object
 
 		if( strlen( (string)($this->id) ) ){ // editing
 			$old_document = (new static)->setState( 'filter.id', $this->id )->getItem();
 			$old_notes = (array) $old_document->notes;
 			
 			$last_idx_old = count( $old_notes );
-			if( empty( $this->__notesToDelete ) == false ){
-				$toDelete = (array) explode( ',', (string) $this->__notesToDelete );
+			$toDeleteStr = trim( (string)$this->__notesToDelete );
+			if( strlen( $toDeleteStr ) ){
+				$toDelete = (array) explode( ',', $toDeleteStr );
 			}
 			for( $i = 0, $c = count( $toDelete ); $i < $c; $i++ ){
 				unset( $notes[(int)$toDelete[$i]] );

@@ -3,7 +3,7 @@ var Notes = Notes || {
 	// note_idx => current index for notes
 	// note_title => note title
 	// note_desc => note description	
-	// note_datetime => date and time in format MM/DD/YYYY HH:MM
+	// note_datetime => date and time in format YYYY-MM-DD HH:MM
 	// note_user => username
 	tmpl_note : '<div class="panel" data-element-type="note" data-mode="" data-note-idx="{note_idx}"> \
 					<div class="panel-heading"> \
@@ -422,6 +422,8 @@ var Notes = Notes || {
 		var title = el_title.val();
 		var desc = el_desc.val();
 		var current_datetime = 'now';
+		
+		title = title.length ? title : 'Note #' + (this.idx + 1);
 		var final_html = this.tmpl_note
 								.replace( /{note_idx}/g, this.idx )
 								.replace( /{note_user}/g, this.userName )
@@ -429,7 +431,12 @@ var Notes = Notes || {
 								.replace( /{note_title}/g, title )
 								.replace( /{note_desc}/g, desc );
 
+		var $no_notes = $( 'div[data-element-type="message-no-notes"]' );
+		if( $no_notes.size() ){
+			$no_notes.hide();
+		}
 		$( 'div[data-element-type="note-form"]' ).after( final_html );
+		
 		var el = $( 'div[data-element-type="note"][data-note-idx="'+this.idx+'"]' );
 		this.setAddedState(el);
 		this.changeToNormalMode( el, -1, -1 );
@@ -463,19 +470,19 @@ var Notes = Notes || {
 			// checks, if there are any modified notes
 			var modified_notes = $('div[data-element-type="note"][data-modified="1"][data-deleted!="1"]');
 			if( modified_notes.size() ){
-				return "Do you really want to leave this page without saving your changes? 1";
+				return "Do you really want to leave this page without saving your changes?";
 			}
 			
 			// checks, if there are any added notes
 			var added_notes = $('div[data-element-type="note"][data-added="1"][data-deleted!="1"]');
 			if( added_notes.size() ){
-				return "Do you really want to leave this page without saving your changes? 2";
+				return "Do you really want to leave this page without saving your changes?";
 			}
 
 			// checks, if there are any deleted notes
 			var deleted_notes = $('div[data-element-type="note"][data-deleted="1"][data-added!="1"]');
 			if( deleted_notes.size() ){
-				return "Do you really want to leave this page without saving your changes? 3";
+				return "Do you really want to leave this page without saving your changes?";
 			}			
 		}
 		return;

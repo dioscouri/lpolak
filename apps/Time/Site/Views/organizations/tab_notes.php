@@ -5,7 +5,7 @@
 	if (!empty($identity->id)) {
 		$username = $identity->fullName();
 	}
-	$notes = (array) $item->{'notes'};
+	$notes = (array) $flash->old('notes');
 	
 	echo $this->renderLayout('Time/Site/Views::organizations/fields_add_note.php');
 ?>
@@ -14,11 +14,12 @@
 	$last_idx = $c;
 	for( $idx = $c - 1; $idx > -1; $idx-- ){
 		$note = $notes[$idx];
+		$title = empty( $note['title']) ? 'Note #'.($idx+1) : $note['title'];
 	?>
 	<div class="panel panel-default" data-element-type="note" data-mode="" data-note-idx="<?php echo $idx; ?>">
 	  <div class="panel-heading">
 	  	<h3 class="panel-title">
-			<span class="note-title"><?php echo $note['title']; ?> <small>(<?php echo $note['datetime']['local']; ?> by <?php echo $note['user']['name']; ?>)</small></span>
+			<span class="note-title"><?php echo $title; ?> <small>(<?php echo $note['datetime']['local']; ?> by <?php echo $note['user']['name']; ?>)</small></span>
 	    	<div class="pull-right" data-element-type="toolbar">
 	    		<strong data-element-type="note-status"></strong>
 	    		&nbsp;
@@ -58,7 +59,7 @@
 	
 <?php }
 } else { ?>
-<div class="row">
+<div class="row" data-element-type="message-no-notes">
 	<div class="col-md-12">
 		<div class="alert alert-info">
 		No notes ... 
