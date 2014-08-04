@@ -2,7 +2,7 @@
 
 namespace Time\Models;
 
-class Project extends  \Dsc\Mongo\Collections\Describable {
+class Projects extends  \Dsc\Mongo\Collections\Describable {
 
     protected $__collection_name = 'time.projects';
 	protected $__type = 'Time.project';
@@ -31,7 +31,7 @@ class Project extends  \Dsc\Mongo\Collections\Describable {
 	{
 		if (!empty($this->organization_id))
 		{	
-			$item = (new \Time\Models\Organization())
+			$item = (new \Time\Models\Organizations())
 						->setState('select.fields', array('title', 'slug'))
 						->setState('filter.id', $this->organization_id)
 						->getItem();
@@ -48,5 +48,12 @@ class Project extends  \Dsc\Mongo\Collections\Describable {
 		}
 	
 		return parent::beforeValidate();
+	}
+	
+	public function getTasks(){
+		$model = (new \Time\Models\Tasks)
+					->populateState()->setState( 'filter.project', $this->{'slug'} );
+		
+		return $model->getItems();
 	}
 }

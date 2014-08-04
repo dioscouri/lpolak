@@ -12,7 +12,7 @@ class Organization extends \Time\Site\Controllers\Base
     protected $edit_item_route = '/organization/edit/{id}';
 
     protected function getModel() {
-    	$model = new \Time\Models\Organization;
+    	$model = new \Time\Models\Organizations;
     	return $model;
     }
 

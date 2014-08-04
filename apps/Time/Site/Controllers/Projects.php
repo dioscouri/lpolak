@@ -5,7 +5,7 @@ class Projects extends \Time\Site\Controllers\Base
 {
 	protected function getModel()
 	{
-		$model = new \Time\Models\Project;
+		$model = new \Time\Models\Projects;
 		return $model;
 	}
         

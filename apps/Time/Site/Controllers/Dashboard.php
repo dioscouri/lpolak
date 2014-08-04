@@ -9,7 +9,7 @@ class Dashboard extends \Time\Site\Controllers\Base
 		switch( $name ) {
 			case 'organization':
 				{
-					$model = new \Time\Models\Organization;
+					$model = new \Time\Models\Organizations;
 					break;
 				}
 		}

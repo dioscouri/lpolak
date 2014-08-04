@@ -16,10 +16,10 @@ class Project extends \Time\Site\Controllers\Base
     	
     	switch( $name ) {
     		case 'project':
-    			$model = new \Time\Models\Project;
+    			$model = new \Time\Models\Projects;
     			break;
     		case 'organization':
-		    	$model = new \Time\Models\Organization;
+		    	$model = new \Time\Models\Organizations;
     			break;
     	}
     	return $model;

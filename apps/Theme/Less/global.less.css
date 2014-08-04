@@ -544,3 +544,17 @@ disabled look for disabled choices in the results dropdown
 .select2-container.form-control{
 	padding : 0px !important;
 }
+
+/**
+  * Dashboard CSS 
+*/
+.stopwatch-main .stopwatch-time{
+	font-size : 4em;
+	color : red;
+}
+
+.stopwatch-main .stopwatch-task{
+	font-size : 2em;
+	color : gray;
+}
+

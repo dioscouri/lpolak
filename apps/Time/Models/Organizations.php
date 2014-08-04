@@ -2,7 +2,7 @@
 
 namespace Time\Models;
 
-class Organization extends  \Dsc\Mongo\Collections\Describable {
+class Organizations extends  \Dsc\Mongo\Collections\Describable {
 
     protected $__collection_name = 'time.organizations';
 	protected $__type = 'Time.organization';
@@ -24,7 +24,14 @@ class Organization extends  \Dsc\Mongo\Collections\Describable {
 	}
 	
 	public function getProjects(){
-		$model = (new \Time\Models\Project)
+		$model = (new \Time\Models\Projects)
+					->populateState()->setState( 'filter.organization', $this->{'slug'} );
+		
+		return $model->getItems();
+	}
+	
+	public function getTasks(){
+		$model = (new \Time\Models\Tasks)
 					->populateState()->setState( 'filter.organization', $this->{'slug'} );
 		
 		return $model->getItems();

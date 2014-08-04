@@ -16,9 +16,10 @@ class TimeBootstrap extends \Dsc\Bootstrap\App
      */
     protected function getJS($app){
         return	array(
-        			'js/select2/select2.min.js',
+        			'js/plugins/select2/select2.min.js',
         			'js/notes.js',
         			'js/common_time.js',
+        			''
         );
     }
     
@@ -28,7 +29,9 @@ class TimeBootstrap extends \Dsc\Bootstrap\App
      * @param $app	Name of currently selected application (site or admin)
     */
     protected function getCSS($app){
-    	return array();
+    	return array(
+    			'css/select2/select2.bootstrap.css',
+    	);
     }
     
 }
