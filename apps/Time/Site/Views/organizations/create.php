@@ -36,7 +36,7 @@
         
         <div class="tab-pane" id="tab-notes">
         
-            <?php echo $this->renderLayout('Time/Site/Views::organizations/tab_notes.php'); ?>
+            <?php echo $this->renderLayout('SystemTheme/Views::notes/notes.php'); ?>
         
         </div>
         <!-- /.tab-pane -->
@@ -50,3 +50,8 @@
     </div>
     
 </form>
+<script type="text/javascript">
+$(function(){
+	Notes.bindSaveButton( 'button[data-task="save-document"]' );
+});
+</script>

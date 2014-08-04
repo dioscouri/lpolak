@@ -4,7 +4,9 @@ namespace Time\Models;
 
 class Project extends  \Dsc\Mongo\Collections\Describable {
 
+    protected $__collection_name = 'time.projects';
 	protected $__type = 'Time.project';
+	use \Dsc\Traits\Models\Notes;
 	
 	protected function fetchConditions()
 	{
@@ -18,6 +20,11 @@ class Project extends  \Dsc\Mongo\Collections\Describable {
 			$this->setCondition( 'organization.slug', $filter_organization );
 		}
 		return $this;
+	}
+
+	public function beforeSave(){
+		$this->beforeSaveNotes();
+		return parent::beforeSave();
 	}
 
 	protected function beforeValidate()

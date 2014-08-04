@@ -17,6 +17,7 @@ class TimeBootstrap extends \Dsc\Bootstrap\App
     protected function getJS($app){
         return	array(
         			'js/select2/select2.min.js',
+        			'js/notes.js',
         			'js/common_time.js',
         );
     }
