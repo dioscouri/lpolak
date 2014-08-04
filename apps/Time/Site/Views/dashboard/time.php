@@ -48,25 +48,42 @@
 				</div>
 			</div> <!--  div.stopwatch-main.row -->
 			<hr />
-			<div class="row">
-				<div class="col-lg-10 col-md-10 col-xs-10">
-					<select id="project-tasks" style="width : 100%">
-						<option value="12">Task1</option>
-				    	<option value="12">Task2</option>
-				    	<option value="12">Task3</option>
-				    	<option value="12">Task4</option>
-				    	<option value="12">Task5</option>
-				    </select>
+			<div id="task-timer-controls-part">
+				<div class="row">
+					<div class="col-lg-10 col-md-10 col-xs-10">
+						<select id="project-tasks" style="width : 100%">
+							<option value="12">Task1</option>
+					    	<option value="12">Task2</option>
+					    	<option value="12">Task3</option>
+					    	<option value="12">Task4</option>
+					    	<option value="12">Task5</option>
+					    </select>
+					</div>
+					<div class="col-lg-1 col-md-1 col-xs-1">
+				   		<button class="btn btn-danger" data-element-type="show-task-form">
+							<i class="fa fa-plus"></i>
+				   		</button>
+					</div>
 				</div>
-				<div class="col-lg-1 col-md-1 col-xs-1">
-			   		<button class="btn btn-danger" type="button">
-						<i class="fa fa-plus"></i>
-			   		</button>
+				<div class="row stopwatch-main">
+		   			<div class="text-center col-xs-12 col-lg-12">
+						<span class="stopwatch-task">3:17:45</span>
+					</div>
 				</div>
 			</div>
-			<div class="row stopwatch-main">
-	   			<div class="text-center col-xs-12 col-lg-12">
-					<span class="stopwatch-task">3:17:45</span>
+			<div id="add-task-form">
+				<div class="row form-group">
+					<div class="col-lg-12 col-xs-12">
+						<label>New Task</label>
+						<input type="text" id="task_title" class="form-control" placeholder="Put title of the task here" />
+					</div>
+				</div>
+				<div class="row form-group">
+					<div class="col-lg-12 col-xs-12">
+						<button class="btn btn-success" data-element-type="save-task">Save</button>
+						&nbsp;&nbsp;
+						<button class="btn btn-danger" data-element-type="reset-task">Clear</button>
+					</div>
 				</div>
 			</div>
 			<hr />
@@ -98,9 +115,27 @@
 </div>
 <script type="text/javascript">
 $(function(){
-	$('div#add-note-form').hide(1);
+	$('div#add-note-form').hide(1);// be default, the add-note form is hidden
+	$('div#add-task-form').hide(1);// be default, the add-task form is hidden
+
 	$("#project-tasks").select2();
 
+	// tasks park
+	$("button[data-element-type='show-task-form']").on( 'click', function() {
+		$( 'div#task-timer-controls-part' ).fadeOut( 'fast', function() {
+			$('div#add-task-form').fadeIn( 'fast');
+		});
+	}); 
+
+	$("button[data-element-type='reset-task']").on( 'click', function() {
+		$( 'div#add-task-form' ).fadeOut( 'fast', function() {
+			$( 'input#task_title' ).val( '' );
+			$('div#task-timer-controls-part').fadeIn( 'fast');
+		});
+	}); 
+	
+
+	// notes part
 	$("a[data-element-type='show-note-form']").on( 'click', function() {
 		$( 'div#note-controls' ).fadeOut( 'fast', function() {
 			$('div#add-note-form').fadeIn( 'fast');
