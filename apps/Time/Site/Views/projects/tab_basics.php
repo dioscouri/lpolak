@@ -5,7 +5,7 @@
 				</div>
 				<div class="form-group col-md-6">
 					<label>Charge per Hour</label>
-					<input name="hourly_rate" value="<?php echo $flash->old('hourly_rate') ?>" type="text" class="form-control" placeholder="Your hourly rate"/>
+					<input name="charging_rat" value="<?php echo $flash->old('charging_rat') ?>" type="text" class="form-control" placeholder="Your charging rate"/>
 				</div>
 			</div>
 			<div class="row">

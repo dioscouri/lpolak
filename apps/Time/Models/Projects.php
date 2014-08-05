@@ -8,6 +8,10 @@ class Projects extends  \Dsc\Mongo\Collections\Describable {
 	protected $__type = 'Time.project';
 	use \Dsc\Traits\Models\Notes;
 	
+	public $organization = null;
+	public $charging_rate = null;
+	public $current_state = \Time\Constants\Projects::StateProjectStopped;
+	
 	protected function fetchConditions()
 	{
 		parent::fetchConditions();

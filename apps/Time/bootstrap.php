@@ -20,6 +20,7 @@ class TimeBootstrap extends \Dsc\Bootstrap\App
         			'js/notes.js',
         			'js/common_time.js',
         			'js/stopwatch.js',
+        			'js/timer_ui.js',
         );
     }
     

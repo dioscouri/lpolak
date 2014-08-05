@@ -1,19 +1,19 @@
 <?php 
-	$act_project = 'Project test';
+	$act_project = $latest_project->title;
 	$act_state = 'Stopped';
 	$panel_css = 'default';
-	$stopwatch_mode = 0; // undetermined
+	$stopwatch_mode = $latest_project->current_state;
 	
-	switch( $act_state ){
-		case 'Running' : 
+	switch( $stopwatch_mode ){
+		case \Time\Constants\Projects::StateProjectRunning : 
+			$act_state = 'Running';
 			$panel_css = 'danger';
-			$stopwatch_mode = 1;
 			break;
 		
-		case 'Stopped' :
+		case \Time\Constants\Projects::StateProjectStopped : 
 		default:
+			$act_state = 'Stopped';
 			$panel_css = 'success';
-			$stopwatch_mode = 2;
 	}
 ?>
 <div class="panel panel-<?php echo $panel_css; ?>">
@@ -22,24 +22,25 @@
 	</div>
 	<div class="panel-collapse collapse in">
 		<div class="panel-body">
+			<!-- Main stopwatch -->
 			<div class="row stopwatch-main">
 				<div class="text-center col-xs-7 col-lg-10">
 					<span class="stopwatch-time">1:12:45</span>
 				</div>
 				<div class="text-center col-xs-5 col-lg-2">
 					<?php switch ( $stopwatch_mode ) {
-						case 1 :  // run bitch, run!
+						case \Time\Constants\Projects::StateProjectRunning : // run, bitch, run!
 							?>
-						   		<button class="btn btn-danger btn-lg" type="button">
+						   		<button class="btn btn-danger btn-lg" data-element-type="timer-control" data-action="stop">
 									<i class="fa fa-stop"></i>
 						   		</button>
 							<?php
 							break;
 						
-						case 2 : // stop :(
+						case \Time\Constants\Projects::StateProjectStopped : 
 						default:
 							?>
-								<button class="btn btn-success btn-lg" type="button">
+								<button class="btn btn-success btn-lg" data-element-type="timer-control" data-action="start">
 									<i class="fa fa-play-circle"></i>
 						   		</button>
 							<?php
@@ -48,6 +49,8 @@
 				</div>
 			</div> <!--  div.stopwatch-main.row -->
 			<hr />
+			
+			<!-- Task stopwatch -->
 			<div id="task-timer-controls-part">
 				<div class="row">
 					<div class="col-lg-10 col-md-10 col-xs-10">
@@ -87,6 +90,8 @@
 				</div>
 			</div>
 			<hr />
+			
+			<!-- Note controles -->
 			<div class="row" id="note-controls">
 	   			<div class="text-center col-xs-12 col-lg-12">
 					<a href="javascript:;" data-element-type="show-note-form">Add a Note</a>
@@ -114,61 +119,12 @@
 	</div>
 </div>
 <script type="text/javascript">
-TimeTimerSetTime = function( act_time, target ){
-	var mins = act_time.m < 10 ? '0' + act_time.m : act_time.m; 
-	var secs = act_time.s < 10 ? '0' + act_time.s : act_time.s; 
-
-	$( target ).html( act_time.h + ":" + mins + ":" + secs );
-}
-					
 $(function(){
-	var timer = new TimeStopwatch();
-	timer.start();
-	
-	$('div#add-note-form').hide(1);// be default, the add-note form is hidden
-	$('div#add-task-form').hide(1);// be default, the add-task form is hidden
-
-	setInterval( function() {
-		TimeTimerSetTime(timer.getFormattedTime(), '.stopwatch-main .stopwatch-time' );
-		TimeTimerSetTime(timer.getFormattedTime(33000), '.stopwatch-main .stopwatch-task' );
-	}, 300);
-
 	$("#project-tasks").select2();
-
-	// tasks park
-	$("button[data-element-type='show-task-form']").on( 'click', function() {
-		$( 'div#task-timer-controls-part' ).fadeOut( 'fast', function() {
-			$('div#add-task-form').fadeIn( 'fast');
-		});
-	}); 
-
-	$("button[data-element-type='reset-task']").on( 'click', function() {
-		$( 'div#add-task-form' ).fadeOut( 'fast', function() {
-			$( 'input#task_title' ).val( '' );
-			$('div#task-timer-controls-part').fadeIn( 'fast');
-		});
-	}); 
-	
-
-	// notes part
-	$("a[data-element-type='show-note-form']").on( 'click', function() {
-		$( 'div#note-controls' ).fadeOut( 'fast', function() {
-			$('div#add-note-form').fadeIn( 'fast');
-		});
-	}); 
-
-	$("button[data-element-type='reset-note']").on( 'click', function() {
-		$( 'div#add-note-form' ).fadeOut( 'fast', function() {
-			$( 'textarea#note_task' ).val( '' );
-			$('div#note-controls').fadeIn( 'fast');
-		});
-	}); 
-
-	
-	$("a[data-element-type='notes-list']").on('click', function() {
-			alert("To be finished");
-		});
-
-	
+	var timer = new TimerUI();
+	timer.bootstrap();
+<?php if( $latest_project->{'current_state'} == \Time\Constants\Projects::StateProjectRunning ) { ?>
+	timer.startOffStopwatch(13000);
+<?php } ?>
 });
 </script>

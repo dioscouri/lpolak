@@ -30,7 +30,7 @@ var TimeStopwatch = function()	{
 	
 	// Initializes stopwatch to a certain time (just to make it a bit nicer to work with)
 	this.initTo = function( new_start ){
-		startAt = new_start;
+		lapTime = new_start;
 	}
 
 	// Duration
