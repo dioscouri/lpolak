@@ -114,9 +114,24 @@
 	</div>
 </div>
 <script type="text/javascript">
+TimeTimerSetTime = function( act_time, target ){
+	var mins = act_time.m < 10 ? '0' + act_time.m : act_time.m; 
+	var secs = act_time.s < 10 ? '0' + act_time.s : act_time.s; 
+
+	$( target ).html( act_time.h + ":" + mins + ":" + secs );
+}
+					
 $(function(){
+	var timer = new TimeStopwatch();
+	timer.start();
+	
 	$('div#add-note-form').hide(1);// be default, the add-note form is hidden
 	$('div#add-task-form').hide(1);// be default, the add-task form is hidden
+
+	setInterval( function() {
+		TimeTimerSetTime(timer.getFormattedTime(), '.stopwatch-main .stopwatch-time' );
+		TimeTimerSetTime(timer.getFormattedTime(33000), '.stopwatch-main .stopwatch-task' );
+	}, 300);
 
 	$("#project-tasks").select2();
 

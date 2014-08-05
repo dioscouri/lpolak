@@ -548,6 +548,15 @@ disabled look for disabled choices in the results dropdown
 /**
   * Dashboard CSS 
 */
+@font-face {
+	font-family: 'digital';
+	src: url('http://thecodeplayer.com/uploads/fonts/DS-DIGI.TTF');
+	
+}
+.stopwatch-main{
+	font-family : digital, arial, vedranana;
+}
+
 .stopwatch-main .stopwatch-time{
 	font-size : 4em;
 	color : red;

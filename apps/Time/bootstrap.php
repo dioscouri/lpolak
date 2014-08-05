@@ -19,7 +19,7 @@ class TimeBootstrap extends \Dsc\Bootstrap\App
         			'js/plugins/select2/select2.min.js',
         			'js/notes.js',
         			'js/common_time.js',
-        			''
+        			'js/stopwatch.js',
         );
     }
     
