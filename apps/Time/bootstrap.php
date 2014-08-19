@@ -5,6 +5,14 @@ class TimeBootstrap extends \Dsc\Bootstrap\App
     protected $dir = __DIR__;
     protected $namespace = 'Time';
 
+    protected  function preBase( $app ){
+    	parent::preBase($app);
+    	\Dsc\System::instance()->get('container')
+    			->share( 'Time.CommandCenter', function() {
+    				return new \Time\Commands\CommandCenter;
+    			});
+    }
+    
     protected function runSite(){
     	parent::runSite();
     }

@@ -23,13 +23,6 @@ class Organizations extends  \Dsc\Mongo\Collections\Describable {
 		return parent::beforeSave();
 	}
 	
-	public function getProjects(){
-		$model = (new \Time\Models\Projects)
-					->populateState()->setState( 'filter.organization', $this->{'slug'} );
-		
-		return $model->getItems();
-	}
-	
 	public function getTasks(){
 		$model = (new \Time\Models\Tasks)
 					->populateState()->setState( 'filter.organization', $this->{'slug'} );

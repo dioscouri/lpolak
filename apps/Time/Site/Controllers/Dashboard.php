@@ -26,15 +26,16 @@ class Dashboard extends \Time\Site\Controllers\Base
         $model = $this->getModel();
         $state = $model->populateState()->getState();
         $this->app->set('state', $state );
-    
+
         $paginated = $model->paginate();
         $this->app->set('paginated', $paginated );
-        
+
         $organizations = $this->getModel('organizations')->getList();
         $latest_project = $this->getModel( 'projects' )->setState( 'filter.id', "53dfefcaf02e2539619f682b" )->getItem(); // for now, it is hardcoded
         $this->app->set( 'latest_project', $latest_project );
         $this->app->set( 'organizations', $organizations );
-        
+		$this->app->set( 'meta.title', 'Dashboard' );
+
         $view = \Dsc\System::instance()->get('theme');
         echo $view->render('Time/Site/Views::dashboard/view.php');
     }

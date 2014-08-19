@@ -16,13 +16,17 @@
 				        	</a>
 				      	</h4>
 				    </div>
-				    <div id="collapse-<?php echo $org->slug; ?>" class="panel-collapse collapse in">
+				    <div id="collapse-<?php echo $org->slug; ?>" class="panel-collapse collapse">
 				      	<div class="panel-body">
-				      <?php
-				      	$projects = $org->getProjects();
-				      	foreach( (array)$projects as $project ) { ?>
-						
-<?php } ?>
+							<ul>
+					      	<?php
+					      		$cmd = \Time\Commands\Factories\Organizations::GetProjects( $org );
+						      	$projects = \Dsc\System::instance()->get( 'Time.CommandCenter' )->Execute($cmd);
+						      	unset( $cmd );
+						      	foreach( (array)$projects as $project ) { ?>
+								<li><a href="javascript:;" alt="<?php echo $project->title; ?>"><?php echo $project->title; ?></a></li>					
+							<?php } ?>
+							</ul>
 						</div>
 					</div>
 				</div>
