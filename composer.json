@@ -16,7 +16,7 @@
         "dioscouri/f3-users": "dev-master",
         "firephp/firephp-core": "dev-master",
         "joomla/framework": ">=1.0",
-        "bcosca/fatfree": "dev-master",
+        "bcosca/fatfree": "dev-master#7c221c6dde",
         "leafo/lessphp": "0.4.0",
         "twbs/bootstrap": "dev-master#727a91de1c",
         "phpseclib/phpseclib" : "dev-php5"

@@ -5,6 +5,6 @@
 		<?php echo $this->renderLayout('Time/Site/Views::dashboard/list.php'); ?>
 	</div>
 	<div class="col-md-4">
-		<?php echo $this->renderLayout('Time/Site/Views::dashboard/time.php'); ?>
+		<?php  echo $this->renderLayout('Time/Site/Views::dashboard/time.php'); ?>
 	</div>
 </div>
